@@ -13,7 +13,7 @@ function controller($http){
   vm.$onInit = onInit;
   vm.newPost = newPost;
   vm.updatePost = updatePost;
-  // vm.deletePost = deletePost;
+  vm.deletePost = deletePost;
 
 
   function onInit(){
@@ -43,6 +43,16 @@ function controller($http){
     .catch((err) =>{
       console.log(err);
     });
+  }
+
+  function deletePost(input){
+    $http.delete(`classifieds/${input.id}`)
+      .then((results) => {
+        console.log(results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
 }
