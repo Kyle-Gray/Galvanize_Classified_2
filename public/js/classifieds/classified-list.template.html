@@ -1,6 +1,13 @@
-<div ng-repeat= "classified in $ctrl.classifieds" class="container">
+
+
+
+<button ng-click="sort ='created_at'">Posting Date</button>
+<button ng-click="sort ='price'">Price</button>
+
+<input type="search" name="search" ng-model="search" id="search">
+<div ng-repeat= "classified in $ctrl.classifieds | filter: search | orderBy: sort " class="container">
   <div>
-    <img ng-src="{{classified.image_item}}" alt="image item">
+    <img ng-src="{{classified.item_image}}" alt="image item">
   </div>
   <div>
     <h3>{{classified.title}}</h3>

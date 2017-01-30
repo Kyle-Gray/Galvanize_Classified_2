@@ -14,6 +14,7 @@ function controller($http){
   vm.newPost = newPost;
   vm.updatePost = updatePost;
   vm.deletePost = deletePost;
+  // vm.sortBy = sortBy;
 
 
   function onInit(){
@@ -54,6 +55,10 @@ function controller($http){
         console.log(err);
       });
   }
+
+  // function sortBy(property){
+  //   vm.classifieds = orderBy(vm.classifieds, property);
+  // }
 
 }
 
