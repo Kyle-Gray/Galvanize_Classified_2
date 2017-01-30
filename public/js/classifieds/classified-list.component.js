@@ -11,11 +11,14 @@ controller.$inject = ['$http'];
 function controller($http){
   const vm = this;
   vm.$onInit = onInit;
+  vm.newPost = newPost;
+  vm.updatePost = updatePost;
+  // vm.deletePost = deletePost;
+
 
   function onInit(){
     $http.get('/classifieds')
     .then((results)=>{
-      console.log(results);
       vm.classifieds = results.data;
     })
     .catch((err) => {
@@ -23,9 +26,29 @@ function controller($http){
     });
   }
 
+  function newPost(input){
+    console.log(input);
+    $http.post('classifieds', input).then((results) => {
+      console.log(results);
+    })
+    .catch((err) =>{
+      console.log(err);
+    });
+  }
 
+  function updatePost(input){
+    $http.patch(`classifieds/${input.id}`, input).then((results) => {
+      console.log(results);
+    })
+    .catch((err) =>{
+      console.log(err);
+    });
+  }
 
 }
+
+
+
 
 
 
