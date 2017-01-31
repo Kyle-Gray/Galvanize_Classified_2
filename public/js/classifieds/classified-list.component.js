@@ -14,7 +14,6 @@ function controller($http){
   vm.newPost = newPost;
   vm.updatePost = updatePost;
   vm.deletePost = deletePost;
-  // vm.sortBy = sortBy;
 
 
   function onInit(){
@@ -30,7 +29,6 @@ function controller($http){
   function newPost(input){
     console.log(input);
     $http.post('classifieds', input).then((results) => {
-      console.log(results);
     })
     .catch((err) =>{
       console.log(err);
@@ -39,7 +37,6 @@ function controller($http){
 
   function updatePost(input){
     $http.patch(`classifieds/${input.id}`, input).then((results) => {
-      console.log(results);
     })
     .catch((err) =>{
       console.log(err);
@@ -49,23 +46,11 @@ function controller($http){
   function deletePost(input){
     $http.delete(`classifieds/${input.id}`)
       .then((results) => {
-        console.log(results);
       })
       .catch((err) => {
         console.log(err);
       });
   }
-
-  // function sortBy(property){
-  //   vm.classifieds = orderBy(vm.classifieds, property);
-  // }
-
 }
-
-
-
-
-
-
 
 })();
